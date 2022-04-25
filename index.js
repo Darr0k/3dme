@@ -74,7 +74,7 @@ window[Symbol.for('MARIO_POST_CLIENT_almalgbpmcfpdaopimbdchdliminoign')] = new(c
         }));
     }
 })('MARIO_POST_CLIENT_almalgbpmcfpdaopimbdchdliminoign', 'MARIO_POST_SERVER_almalgbpmcfpdaopimbdchdliminoign')
-(function inject() {
+
     var open = XMLHttpRequest.prototype.open;
 
     XMLHttpRequest.prototype.open = function() {
@@ -120,7 +120,6 @@ window[Symbol.for('MARIO_POST_CLIENT_almalgbpmcfpdaopimbdchdliminoign')] = new(c
 
         return send.apply(this, arguments);
     };
-})();
 const hideMyLocation = new(class HideMyLocation {
 constructor(clientKey) {
     this.clientKey = clientKey, this.watchIDs = {}, this.client = window[Symbol.for(clientKey)];
