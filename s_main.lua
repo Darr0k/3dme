@@ -1,0 +1,15 @@
+QBCore = exports['qb-core']:GetCoreObject()
+
+QBCore.Commands.Add("me", "Character interactions", {}, false, function(source, args)
+	local text = table.concat(args, ' ')
+	local Player = QBCore.Functions.GetPlayer(source)
+	TriggerClientEvent('3dme:triggerDisplay', -1, text, source)
+    TriggerEvent("qb-log:server:CreateLog", "me", "Me", "white", "**"..GetPlayerName(source).."** (CitizenID: "..Player.PlayerData.citizenid.." | ID: "..source..")** " ..Player.PlayerData.charinfo.firstname.." "..Player.PlayerData.charinfo.lastname.. " **" ..text, false)
+end)
+
+QBCore.Commands.Add('pme', 'اظهار كلام على لاعب',  {{id = 'id', help = 'هوية الاعب'}, {id = 'text', help = 'الكلام'}}, false, function(source, args)
+	local Player = QBCore.Functions.GetPlayer(tonumber(args[1]))
+	local text = table.concat(args[2], ' ')
+	TriggerClientEvent('3dme:triggerDisplay', -1, text, Player.PlayerData.source)
+    TriggerEvent("qb-log:server:CreateLog", "me", "Me", "white", "**"..GetPlayerName(Player.PlayerData.source).."** (CitizenID: "..Player.PlayerData.citizenid.." | ID: "..Player.PlayerData.source..")** " ..Player.PlayerData.charinfo.firstname.." "..Player.PlayerData.charinfo.lastname.. " **" ..text, false)
+end, "god")
